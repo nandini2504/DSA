@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+void minheap(int arr[],int i)
+{
+    int parent=(i-1)/2;
+    int cur=i;
+    while(parent>=0 && arr[parent]>arr[cur])
+  {  swap(arr[parent],arr[cur]);
+      cur=parent;
+    parent=(cur-1)/2;
+}
+	    //cout<<"\n Minimum marks of the students "<<arr[0];
+
+}
+
+void maxheap(int arr[],int i)
+{
+    int parent=(i-1)/2;
+    int cur=i;
+    while(parent>=0 && arr[parent]<arr[cur])
+  {  swap(arr[parent],arr[cur]);
+      cur=parent;
+    parent=(cur-1)/2;
+}
+	    //cout<<"\n Minimum marks of the students "<<arr[0];
+
+}
+
+void accept(){
+		int n,ch;
+		int a[20];
+	    cout<<"Enter the number of students"<<endl;
+	    cin>>n;
+	    cout<<"Enter the marks of the students "<<endl;
+	    for (int i = 0; i < n; i++)
+	    {
+	        cin>>a[i];
+	    }
+	    do
+	    {
+	        cout<<"\nEnter your choice Minheap or Maxheap DS";
+	        cin>>ch;
+	    
+	      switch(ch)
+	      {
+	          case 1:
+	            for(int i=1;i<n;i++)
+                   {
+	                 minheap(a, i);}
+	                 cout<<"Min heap atfer inserting:";
+                      for(int i=0;i<n;i++)
+                        {cout<<a[i]<<" ";}
+                       cout<<endl;
+                    cout<<"\n Minimum marks of the students "<<a[0];
+                    break;
+                case 2:
+	            for(int i=1;i<n;i++)
+                   {
+	                 maxheap(a, i);}
+	                 cout<<"Max heap atfer inserting:";
+                      for(int i=0;i<n;i++)
+                        {cout<<a[i]<<" ";}
+                       cout<<endl;
+                    cout<<"\n Maximum marks of the students "<<a[0]<<endl;
+                    break;
+                case 3: exit(0);
+	             }
+	    }while(ch!=3);
+	    
+	   
+	    //display(a,n);
+}
+
+int main() {
+    // Write C++ code here
+   accept();
+ }
